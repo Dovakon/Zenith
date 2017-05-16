@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Settings")]
     public int speechDuration;
+    public int timeForShoot;
     private float fadeSpeed = .1f;
     private int drawDepth = -1000;
     private float alpha = 1.0f;
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour {
         if (spawnManager)
         {
             spawnManager.StarSpawning();
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(timeForShoot);
             weapon.GetComponent<PlayerWeapon>().canShoot = true;
             rocketWeapon.canShoot = true;
             while (BossSprite.localScale.x < .5f)
