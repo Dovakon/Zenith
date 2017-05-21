@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Credits : MonoBehaviour
@@ -24,6 +25,11 @@ public class Credits : MonoBehaviour
     {
         if (StartMoving)
         {
+            if (Input.GetButton("Cancel"))
+            {
+                SceneManager.LoadScene(1);
+            }
+
             move += Time.deltaTime * speed;
             canvas.position = Vector2.Lerp(new Vector2(0, -4.5f), new Vector2(0, 8), move);
             if(move > .25f)
